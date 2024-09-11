@@ -67,8 +67,7 @@ int main()
                 hi2c0.Instance->CR2 |= I2C_CR2_STOP_M;
             }
         }
-        for (volatile int i = 0; i < 1000000; i++)
-            ;
+        HAL_DelayMs(1000);
 
         /* Прием данных по адресу 0x36 */
         xprintf("\nMaster_Receive\n");
@@ -98,8 +97,7 @@ int main()
                 }
             }
         }
-        for (volatile int i = 0; i < 1000000; i++)
-            ;
+        HAL_DelayMs(100);
     }
 }
 
