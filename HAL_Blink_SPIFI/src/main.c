@@ -41,12 +41,6 @@ __attribute__((section(".ram_text"))) void Startup_SPIFI_Config()
     HAL_SPIFI_MemoryMode_Init_LL(&spifi, 0x400FFFFF | SPIFI_CONFIG_CTRL_CACHE_EN_M, 0x90000000, CMD_READ_DATA);
 }
 
-__attribute__((section(".ram_text"))) void delay_loop()
-{
-    for (volatile int i = 0; i < 1000000; i++)
-        ;
-}
-
 int main()
 {
     SystemClock_Config();
@@ -68,9 +62,7 @@ int main()
         HAL_GPIO_TogglePin(GPIO_0, GPIO_PIN_3);
         HAL_GPIO_TogglePin(GPIO_1, GPIO_PIN_3);
 #endif
-        for (volatile int i = 0; i < 1000000; i++)
-            ;
-        // delay_loop();
+        HAL_DelayMs(100);
     }
 }
 
