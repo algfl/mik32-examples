@@ -40,15 +40,13 @@ void ledBlink()
 {
 #ifdef BOARD_LITE
 	GPIO_2->OUTPUT ^= 1 << PIN_LED; // Установка сигнала вывода 7 порта 2 в противоположный уровень
-	for (volatile int i = 0; i < 100000; i++)
-		;
+	HAL_DelayMs(100);
 #endif
 
 #ifdef BOARD_DIP
 	GPIO_0->OUTPUT ^= 1 << PIN_LED1; // Установка сигнала вывода 3 порта 0 в противоположный уровень
 	GPIO_1->OUTPUT ^= 1 << PIN_LED2; // Установка сигнала вывода 3 порта 1 в противоположный уровень
-	for (volatile int i = 0; i < 100000; i++)
-		;
+	HAL_DelayMs(100);
 #endif
 }
 
