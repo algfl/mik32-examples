@@ -44,7 +44,7 @@ int main()
     {    
         /* Запуск однократного преобразования */
         HAL_ADC_Single(&hadc);
-        for (volatile uint32_t i = 0; i < 100000; i++);
+        HAL_Delay(100);
         xprintf("ADC: %d (V = %d,%03d)\n", adc_value, ((adc_value*1200)/4095)/1000, ((adc_value*1200)/4095)%1000);
     }
        
